@@ -1,0 +1,13 @@
+{
+  "name": "base",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "dateformat": "^2.0.0",
+    "node-cron": "^1.1.3",
+    "request": "^2.81.0"
+  }
+}

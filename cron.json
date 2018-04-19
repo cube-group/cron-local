@@ -1,0 +1,14 @@
+[
+  {
+    "time": "* * * * * *",
+    "value": "echo hello"
+  },
+  {
+    "time": "* * * * * *",
+    "value": "echo cron-local"
+  },
+  {
+    "time": "* * * * * *",
+    "value": "asdfadf"
+  }
+]
