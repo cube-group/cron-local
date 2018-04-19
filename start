@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 
+"use strict";
+
 let fs = require("fs");
 let config = require('./conf/config');
 
-let appPath = process.env.APP_PATH;
-// let appPath = __dirname;
-if (!appPath) {
-    process.exit('app path null');
-}
-
 let inter = setInterval(() => {
-    "use strict";
-
     console.log('check cron.json');
-    let content = fs.readFileSync(appPath + '/cron.json');
+
+    let appPath = process.env.APP_PATH;
+    // let appPath = __dirname;
+    if (!appPath) {
+        return;
+    }
+    let cronFile = appPath + '/cron.json';
+    if (!fs.existsSync(cronFile)) {
+        return;
+    }
+    let content = fs.readFileSync(cronFile);
     if (content) {
         console.log('checked');
         clearInterval(inter);
@@ -23,8 +27,6 @@ let inter = setInterval(() => {
 
 
 function exec(json) {
-    "use strict";
-
     config.name = process.env.APP_NAME;
     config.webhook = process.env.APP_MONITOR_HOOK;
 
